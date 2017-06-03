@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+<package name="eric" extends="struts-default">
+	<interceptors>
+		<interceptor name="jumpBefore" class="com.eric.interceptor.JumpBeforeInterceptor">  
+	           <param name="includeMethods">login</param>
+	    </interceptor>
+	        <interceptor-stack name="jumpTo">  
+		        <interceptor-ref name="jumpBefore"></interceptor-ref>  
+		        <interceptor-ref name="defaultStack"></interceptor-ref>  
+	        </interceptor-stack>  
+	</interceptors>
+</package> 
+
+
+<constant name="struts.devMode" value="true"></constant>
+<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
+<constant name="struts.i18n.encoding" value="utf-8"></constant>
+<constant name="struts.objectFactory" value="spring" />
+
+
+
+
+
+</struts>
+	
